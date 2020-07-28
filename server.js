@@ -13,6 +13,7 @@ server.use(cors());
 server.use(helmet());
 server.use(cookieParser());
 server.use(express.json());
+server.use(express.static(__dirname + '../public'))
 
 server.use(logger('long'));
 server.use('/users', usersRouter);
