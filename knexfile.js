@@ -1,20 +1,22 @@
 module.exports = {
-  client: 'sqlite3',
-  connection: {
-    filename: './database/anywhere-fitness.db3'
-  },
-  useNullAsDefault:true,
-  migrations: {
-    directory: './database/migrations'
-  },
-  seeds: {
-    directory: './database/seeds'
-  },
-  // needed when using foreign keys
-  pool: {
-    afterCreate: (conn, done) => {
-      // runs after a connection is made to the sqlite engine
-      conn.run('PRAGMA foreign_keys = ON', done); // turn on foreign key enforcement
+  development: {
+    client: 'sqlite3',
+    connection: {
+      filename: './database/anywhere-fitness.db3',
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: './database/migrations',
+    },
+    seeds: {
+      directory: './database/seeds',
+    },
+    // needed when using foreign keys
+    pool: {
+      afterCreate: (conn, done) => {
+        // runs after a connection is made to the sqlite engine
+        conn.run('PRAGMA foreign_keys = ON', done) // turn on foreign key enforcement
+      },
     },
   },
   testing: {
@@ -29,5 +31,24 @@ module.exports = {
     seeds: {
       directory: './database/seeds',
     },
+  },
+  production: {
+    client: 'postgresql',
+    connection: {
+      database: 'anywherefitness',
+      user: 'username',
+      password: 'password'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations',
+      directory: './database/migrations'
+    },
+    seeds: {
+      directory: './database/seeds'
+    }
   },
 }
