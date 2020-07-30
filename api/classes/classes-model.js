@@ -29,20 +29,6 @@ async function findById(id) {
 		.where('classes.id', id).first();
 }
 
-/*
-db('steps').join('schemes', 'steps.scheme_id', '=', 'schemes.id')
-                      .select('steps.id', 'scheme_name', 'step_number', 'instructions')
-                      .where('schemes.id', id)
-                      .orderBy('step_number');
- */
-
-
-/*
-// Returns classes at specific time
-async function findBy(filter) {
-	return db('classes').where(filter);
-}
-*/
 
 // Adds a user object to the database
 async function add(course) {

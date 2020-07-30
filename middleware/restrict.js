@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 function restrict(role) {
 	return async (req, res, next) => {
 		const authError = {
-			message: 'You shall not pass!',
+			message: 'Authentication error',
 		}
 
 		try {

@@ -33,7 +33,7 @@ module.exports = {
     },
   },
   production: {
-    client: 'postgres',
+    client: 'pg',
     connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
