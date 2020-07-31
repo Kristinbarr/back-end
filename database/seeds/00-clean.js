@@ -1,8 +1,8 @@
 
 exports.seed = async function(knex) {
-   await knex('class_clients').truncate();
-   await knex('classes').truncate();
-   await knex('types').truncate();
-   await knex('users').truncate();
-   await knex('roles').truncate();
+   await knex('class_clients').del();
+   await knex('classes').del();
+   await knex('types').del();
+   await knex('users').del();
+   await knex('roles').del();
 }
